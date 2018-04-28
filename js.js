@@ -252,7 +252,7 @@ d3.csv("mydata.csv", function(error, mydata) {
 					"translate(" + width / 2.75 + " ," + (height + margin.top + 60) + ")")
 				.attr("class", "xaxisText xinactive")
 				.attr("data-axis-name", "logOfMeanEarnings")
-				.text("Mean Earnings");
+				.text("logOfMeanEarnings");
 
 		//==================================================================================//
 			// Change an x-axis's status from inactive to active when clicked (if it was inactive)
