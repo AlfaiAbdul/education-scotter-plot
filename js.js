@@ -115,27 +115,27 @@ d3.csv("mydata.csv", function(error, mydata) {
 						// designing tool tip based on which X-AXIS is active
 
 						if (currentAxisLabelX === 'numberOfStudentsNotWorkingAndNotEnrolled10YearsAfterEntry') {
-							xinfo = "Education < Highscool (%): " + numberOfStudentsNotWorkingAndNotEnrolled10YearsAfterEntry;
+							xinfo = "Not working and Not Enrolled after 10 years" + numberOfStudentsNotWorkingAndNotEnrolled10YearsAfterEntry;
 						}
 						else if (currentAxisLabelX === 'numberOfStudentsWorkingAndNotEnrolled10YearsAfterEntry') {
-							xinfo = "Education > Bachelors (%): " + numberOfStudentsWorkingAndNotEnrolled10YearsAfterEntry
+							xinfo = "Working Not Enrolled after 10 years" + numberOfStudentsWorkingAndNotEnrolled10YearsAfterEntry
 						}
 						else {
-							xinfo = "No Health coverage (%): " + meanEarningsOfStudentsWorkingAndNotEnrolled10yearsAfterEntry
+							xinfo = "Mean Earnings" + meanEarningsOfStudentsWorkingAndNotEnrolled10yearsAfterEntry
 						}
 						// return (state + xinfo + xdata);
 						// designing tool tip based on which Y-AXIS is active
 
 						if (currentAxisLabelY === 'WHITE') {
-							yinfo = "Can't afford Healthcare (%): " + WHITE
+							yinfo = "White" + WHITE
 						}
 
 						else if(currentAxisLabelY === 'BLACK'){
-							yinfo = "Unemployment (%):" + BLACK
+							yinfo = "Black" + BLACK
 						}
 
 						else{
-							yinfo = "Depression (%): " + HISPANIC
+							yinfo = "Hispanic" + HISPANIC
 						}
 							console.log(state,":",xinfo, yinfo)
 						return state + "<hr>" + xinfo + "<br>" + yinfo;
