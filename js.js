@@ -32,7 +32,7 @@ d3.csv("mydata.csv", function(error, mydata) {
 				data.numberOfStudentsWorkingAndNotEnrolled10YearsAfterEntry = +data.numberOfStudentsWorkingAndNotEnrolled10YearsAfterEntry
 				data.BLACK = +data.BLACK
 				//3rd chart
-				data.logOfMeanEarnings = +data.logOfMeanEarnings
+				data.MeanEarningsDevidedBy1000 = +data.MeanEarningsDevidedBy1000
 				data.HISPANIC = +data.HISPANIC
 			});
 			console.log(mydata)
@@ -90,7 +90,7 @@ d3.csv("mydata.csv", function(error, mydata) {
 
 		// defining tooltip 
 		//2nd chart - numberOfStudentsWorkingAndNotEnrolled10YearsAfterEntry && BLACK
-		//3rd chart - logOfMeanEarnings && HISPANIC
+		//3rd chart - MeanEarningsDevidedBy1000 && HISPANIC
 			var toolTip = d3.tip()
 					.attr("class", "tooltip")
 					.offset([80, -60])
@@ -109,7 +109,7 @@ d3.csv("mydata.csv", function(error, mydata) {
 						var numberOfStudentsWorkingAndNotEnrolled10YearsAfterEntry = +data.numberOfStudentsWorkingAndNotEnrolled10YearsAfterEntry
 						var BLACK = +data.BLACK
 						// 3rd chart data fields
-						var logOfMeanEarnings = +data.logOfMeanEarnings
+						var MeanEarningsDevidedBy1000 = +data.MeanEarningsDevidedBy1000
 						var HISPANIC = +data.HISPANIC
 
 						// designing tool tip based on which X-AXIS is active
@@ -121,7 +121,7 @@ d3.csv("mydata.csv", function(error, mydata) {
 							xinfo = "Working Not Enrolled after 10 years" + numberOfStudentsWorkingAndNotEnrolled10YearsAfterEntry
 						}
 						else {
-							xinfo = "log Mean Earnings" + logOfMeanEarnings
+							xinfo = "log Mean Earnings" + MeanEarningsDevidedBy1000
 						}
 						// return (state + xinfo + xdata);
 						// designing tool tip based on which Y-AXIS is active
@@ -251,8 +251,8 @@ d3.csv("mydata.csv", function(error, mydata) {
 					"transform",
 					"translate(" + width / 2.75 + " ," + (height + margin.top + 60) + ")")
 				.attr("class", "xaxisText xinactive")
-				.attr("data-axis-name", "logOfMeanEarnings")
-				.text("logOfMeanEarnings");
+				.attr("data-axis-name", "MeanEarningsDevidedBy1000")
+				.text("MeanEarningsDevidedBy1000");
 
 		//==================================================================================//
 			// Change an x-axis's status from inactive to active when clicked (if it was inactive)
