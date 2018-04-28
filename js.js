@@ -205,7 +205,7 @@ d3.csv("mydata.csv", function(error, mydata) {
 					.attr("dy", "1em")
 					.attr("class", "yaxisText yactive")
 					.attr("data-axis-name", "WHITE")
-					.text("Cant afford healthcare (%)");
+					.text("White");
 
 		//append y-label for inactive y-axis
 		 chart.append("text")
@@ -215,7 +215,7 @@ d3.csv("mydata.csv", function(error, mydata) {
 					.attr("dy", "1em")
 					.attr("class", "yaxisText yinactive")
 					.attr("data-axis-name", "BLACK")
-					.text("Unemployment (%)");
+					.text("Black");
 
 		//append y-label for inactive y-axis
 		 chart.append("text")
@@ -225,14 +225,14 @@ d3.csv("mydata.csv", function(error, mydata) {
 					.attr("dy", "1em")
 					.attr("class", "yaxisText yinactive")
 					.attr("data-axis-name", "HISPANIC")
-					.text("Depression (%)");
+					.text("Hispanic");
 
 		// Append x-axis labels for default active x-axis
 			chart.append("text")
 				.attr("transform", "translate(" + (width / 3) + " ," + (height + margin.top + 20) + ")")
 				.attr("class", "xaxisText xactive")
 				.attr("data-axis-name", "numberOfStudentsNotWorkingAndNotEnrolled10YearsAfterEntry")
-				.text("Education < Highschool (%)");
+				.text("Not working and Not Enrolled after 10 years");
 
 		// Append x-axis labels for in-active x-axis
 			chart
@@ -243,7 +243,7 @@ d3.csv("mydata.csv", function(error, mydata) {
 				// This axis label is inactive by default
 				.attr("class", "xaxisText xinactive")
 				.attr("data-axis-name", "numberOfStudentsWorkingAndNotEnrolled10YearsAfterEntry")
-				.text("Education > Bachelors(%)");
+				.text("Working Not Enrolled after 10 years");
 		// Append x-axis labels for in-active x-axis
 			chart
 				.append("text")
@@ -252,7 +252,7 @@ d3.csv("mydata.csv", function(error, mydata) {
 					"translate(" + width / 2.75 + " ," + (height + margin.top + 60) + ")")
 				.attr("class", "xaxisText xinactive")
 				.attr("data-axis-name", "meanEarningsOfStudentsWorkingAndNotEnrolled10yearsAfterEntry")
-				.text("No Health coverage(%)");
+				.text("Mean Earnings");
 
 		//==================================================================================//
 			// Change an x-axis's status from inactive to active when clicked (if it was inactive)
