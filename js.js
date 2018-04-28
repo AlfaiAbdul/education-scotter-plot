@@ -32,7 +32,7 @@ d3.csv("mydata.csv", function(error, mydata) {
 				data.numberOfStudentsWorkingAndNotEnrolled10YearsAfterEntry = +data.numberOfStudentsWorkingAndNotEnrolled10YearsAfterEntry
 				data.BLACK = +data.BLACK
 				//3rd chart
-				data.meanEarningsOfStudentsWorkingAndNotEnrolled10yearsAfterEntry = +data.meanEarningsOfStudentsWorkingAndNotEnrolled10yearsAfterEntry
+				data.logOfMeanEarnings = +data.logOfMeanEarnings
 				data.HISPANIC = +data.HISPANIC
 			});
 			console.log(mydata)
@@ -90,7 +90,7 @@ d3.csv("mydata.csv", function(error, mydata) {
 
 		// defining tooltip 
 		//2nd chart - numberOfStudentsWorkingAndNotEnrolled10YearsAfterEntry && BLACK
-		//3rd chart - meanEarningsOfStudentsWorkingAndNotEnrolled10yearsAfterEntry && HISPANIC
+		//3rd chart - logOfMeanEarnings && HISPANIC
 			var toolTip = d3.tip()
 					.attr("class", "tooltip")
 					.offset([80, -60])
@@ -109,7 +109,7 @@ d3.csv("mydata.csv", function(error, mydata) {
 						var numberOfStudentsWorkingAndNotEnrolled10YearsAfterEntry = +data.numberOfStudentsWorkingAndNotEnrolled10YearsAfterEntry
 						var BLACK = +data.BLACK
 						// 3rd chart data fields
-						var meanEarningsOfStudentsWorkingAndNotEnrolled10yearsAfterEntry = +data.meanEarningsOfStudentsWorkingAndNotEnrolled10yearsAfterEntry
+						var logOfMeanEarnings = +data.logOfMeanEarnings
 						var HISPANIC = +data.HISPANIC
 
 						// designing tool tip based on which X-AXIS is active
@@ -121,7 +121,7 @@ d3.csv("mydata.csv", function(error, mydata) {
 							xinfo = "Working Not Enrolled after 10 years" + numberOfStudentsWorkingAndNotEnrolled10YearsAfterEntry
 						}
 						else {
-							xinfo = "Mean Earnings" + meanEarningsOfStudentsWorkingAndNotEnrolled10yearsAfterEntry
+							xinfo = "log Mean Earnings" + logOfMeanEarnings
 						}
 						// return (state + xinfo + xdata);
 						// designing tool tip based on which Y-AXIS is active
@@ -251,7 +251,7 @@ d3.csv("mydata.csv", function(error, mydata) {
 					"transform",
 					"translate(" + width / 2.75 + " ," + (height + margin.top + 60) + ")")
 				.attr("class", "xaxisText xinactive")
-				.attr("data-axis-name", "meanEarningsOfStudentsWorkingAndNotEnrolled10yearsAfterEntry")
+				.attr("data-axis-name", "logOfMeanEarnings")
 				.text("Mean Earnings");
 
 		//==================================================================================//
