@@ -232,7 +232,7 @@ d3.csv("mydata.csv", function(error, mydata) {
 				.attr("transform", "translate(" + (width / 3) + " ," + (height + margin.top + 20) + ")")
 				.attr("class", "xaxisText xactive")
 				.attr("data-axis-name", "MedianHouseHoldInc")
-				.text("Not working and Not Enrolled after 10 years");
+				.text("MedianHouseHoldInc");
 
 		// Append x-axis labels for in-active x-axis
 			chart
@@ -243,7 +243,7 @@ d3.csv("mydata.csv", function(error, mydata) {
 				// This axis label is inactive by default
 				.attr("class", "xaxisText xinactive")
 				.attr("data-axis-name", "PovertyRate")
-				.text("Working Not Enrolled after 10 years");
+				.text("PovertyRate");
 		// Append x-axis labels for in-active x-axis
 			chart
 				.append("text")
