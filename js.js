@@ -26,10 +26,10 @@ d3.csv("mydata.csv", function(error, mydata) {
 	if (error) throw error;
 
 			mydata.forEach(function(data) {
-				data.numberOfStudentsNotWorkingAndNotEnrolled10YearsAfterEntry = +data.numberOfStudentsNotWorkingAndNotEnrolled10YearsAfterEntry;
+				data.MedianHouseHoldInc = +data.MedianHouseHoldInc;
 				data.WHITE = +data.WHITE;
 				//2nd chart
-				data.numberOfStudentsWorkingAndNotEnrolled10YearsAfterEntry = +data.numberOfStudentsWorkingAndNotEnrolled10YearsAfterEntry
+				data.PovertyRate = +data.PovertyRate
 				data.BLACK = +data.BLACK
 				//3rd chart
 				data.MeanEarningsDevidedBy1000 = +data.MeanEarningsDevidedBy1000
@@ -73,13 +73,13 @@ d3.csv("mydata.csv", function(error, mydata) {
 				});
 			}
 
-			// The default x-axis is 'numberOfStudentsNotWorkingAndNotEnrolled10YearsAfterEntry'
+			// The default x-axis is 'MedianHouseHoldInc'
 			// Another axis can be assigned to the variable during an onclick event.
 			// This variable is key to the ability to change axis/data column
-			var currentAxisLabelX = "numberOfStudentsNotWorkingAndNotEnrolled10YearsAfterEntry";
+			var currentAxisLabelX = "MedianHouseHoldInc";
 			var currentAxisLabelY = "WHITE";
 
-			// Call findMinAndMax() with 'numberOfStudentsNotWorkingAndNotEnrolled10YearsAfterEntry' as default
+			// Call findMinAndMax() with 'MedianHouseHoldInc' as default
 			findMinAndMax(currentAxisLabelX);
 			findMinAndMax(currentAxisLabelY);
 
@@ -89,7 +89,7 @@ d3.csv("mydata.csv", function(error, mydata) {
 			yLinearScale.domain([yMin,yMax]);
 
 		// defining tooltip 
-		//2nd chart - numberOfStudentsWorkingAndNotEnrolled10YearsAfterEntry && BLACK
+		//2nd chart - PovertyRate && BLACK
 		//3rd chart - MeanEarningsDevidedBy1000 && HISPANIC
 			var toolTip = d3.tip()
 					.attr("class", "tooltip")
@@ -103,10 +103,10 @@ d3.csv("mydata.csv", function(error, mydata) {
 						var ydata = +data[currentAxisLabelY];
 
 						// 1st chart data fields
-						var numberOfStudentsNotWorkingAndNotEnrolled10YearsAfterEntryl = +data.numberOfStudentsNotWorkingAndNotEnrolled10YearsAfterEntry;
+						var MedianHouseHoldIncl = +data.MedianHouseHoldInc;
 						var WHITE = +data.WHITE;
 						// 2nd chart data fields
-						var numberOfStudentsWorkingAndNotEnrolled10YearsAfterEntry = +data.numberOfStudentsWorkingAndNotEnrolled10YearsAfterEntry
+						var PovertyRate = +data.PovertyRate
 						var BLACK = +data.BLACK
 						// 3rd chart data fields
 						var MeanEarningsDevidedBy1000 = +data.MeanEarningsDevidedBy1000
@@ -114,11 +114,11 @@ d3.csv("mydata.csv", function(error, mydata) {
 
 						// designing tool tip based on which X-AXIS is active
 
-						if (currentAxisLabelX === 'numberOfStudentsNotWorkingAndNotEnrolled10YearsAfterEntry') {
-							xinfo = "Not working and Not Enrolled after 10 years" + numberOfStudentsNotWorkingAndNotEnrolled10YearsAfterEntry;
+						if (currentAxisLabelX === 'MedianHouseHoldInc') {
+							xinfo = "MedianHouseHoldInc" + MedianHouseHoldInc;
 						}
-						else if (currentAxisLabelX === 'numberOfStudentsWorkingAndNotEnrolled10YearsAfterEntry') {
-							xinfo = "Working Not Enrolled after 10 years" + numberOfStudentsWorkingAndNotEnrolled10YearsAfterEntry
+						else if (currentAxisLabelX === 'PovertyRate') {
+							xinfo = "PovertyRate" + PovertyRate
 						}
 						else {
 							xinfo = "log Mean Earnings" + MeanEarningsDevidedBy1000
@@ -148,7 +148,7 @@ d3.csv("mydata.csv", function(error, mydata) {
 						.data(mydata)
 						.enter().append("circle")
 						.attr("cx", function(data, index) {
-							// console.log(data.numberOfStudentsNotWorkingAndNotEnrolled10YearsAfterEntry);
+							// console.log(data.MedianHouseHoldInc);
 							return xLinearScale(+data[currentAxisLabelX]);
 						})
 						.attr("cy", function(data, index) {
@@ -231,7 +231,7 @@ d3.csv("mydata.csv", function(error, mydata) {
 			chart.append("text")
 				.attr("transform", "translate(" + (width / 3) + " ," + (height + margin.top + 20) + ")")
 				.attr("class", "xaxisText xactive")
-				.attr("data-axis-name", "numberOfStudentsNotWorkingAndNotEnrolled10YearsAfterEntry")
+				.attr("data-axis-name", "MedianHouseHoldInc")
 				.text("Not working and Not Enrolled after 10 years");
 
 		// Append x-axis labels for in-active x-axis
@@ -242,7 +242,7 @@ d3.csv("mydata.csv", function(error, mydata) {
 					"translate(" + width / 2.85 + " ," + (height + margin.top + 40) + ")")
 				// This axis label is inactive by default
 				.attr("class", "xaxisText xinactive")
-				.attr("data-axis-name", "numberOfStudentsWorkingAndNotEnrolled10YearsAfterEntry")
+				.attr("data-axis-name", "PovertyRate")
 				.text("Working Not Enrolled after 10 years");
 		// Append x-axis labels for in-active x-axis
 			chart
