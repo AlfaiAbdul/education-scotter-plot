@@ -154,7 +154,7 @@ d3.csv("mydata.csv", function(error, mydata) {
 						.attr("cy", function(data, index) {
 							return yLinearScale(+data[currentAxisLabelY]);
 						})
-						.attr("r", "5")
+						.attr("r", "15")
 						// // or when using calculation for radius
 						// .attr("r", function(data, index){
 						//   return data.WHITE;
