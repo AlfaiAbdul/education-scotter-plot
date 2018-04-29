@@ -154,7 +154,7 @@ d3.csv("mydata.csv", function(error, mydata) {
 						.attr("cy", function(data, index) {
 							return yLinearScale(+data[currentAxisLabelY]);
 						})
-						.attr("r", "15")
+						.attr("r", "5")
 						// // or when using calculation for radius
 						// .attr("r", function(data, index){
 						//   return data.WHITE;
@@ -380,7 +380,7 @@ d3.csv("mydata.csv", function(error, mydata) {
 							.select(this)
 							.transition()
 							// .ease(d3.easeBounce)
-							.attr("cx", function(data) {
+							//.attr("cx", function(data) {
 							// 	return xLinearScale(+data[currentAxisLabelX]);
 							// })
 							.attr("cy", function(data){
@@ -394,7 +394,7 @@ d3.csv("mydata.csv", function(error, mydata) {
 							.select(this)
 							.transition()
 							// .ease(d3.easeBounce)
-							.attr("x", function(data) {
+							//.attr("x", function(data) {
 							// 	return xLinearScale(+data[currentAxisLabelX]);
 							// })
 							.attr("y", function(data){
