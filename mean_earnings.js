@@ -34,6 +34,9 @@ d3.csv("consol_data.csv", function(error, mydata) {
 				//3rd chart
 				data.FEMALE = +data.FEMALE
 				data.MN_EARN_WNE_P10 = +data.MN_EARN_WNE_P10
+				//4th chart
+				data.TUITIONFEE_IN = +data.TUITIONFEE_IN
+				data.MN_EARN_WNE_P10 = +data.MN_EARN_WNE_P10
 			});
 			console.log(mydata)
 
@@ -110,6 +113,8 @@ d3.csv("consol_data.csv", function(error, mydata) {
 						//var MN_EARN_WNE_P10 = +data.MN_EARN_WNE_P10;
 						// 3rd chart data fields
 						var FEMALE = +data.FEMALE;
+						// 4th chart data fields
+						var TUITIONFEE_IN = +data.TUITIONFEE_IN;
 						//var MN_EARN_WNE_P10 = +data.MN_EARN_WNE_P10;
 
 						// designing tool tip based on which X-AXIS is active
@@ -120,8 +125,11 @@ d3.csv("consol_data.csv", function(error, mydata) {
 						else if (currentAxisLabelX === 'MEDIAN_HH_INC') {
 							xinfo = "MEDIAN_HH_INC" + MN_EARN_WNE_P10
 						}
-						else {
+						else if {
 							xinfo = "FEMALE" + FEMALE
+						}
+						else {
+							xinfo = "TUITIONFEE_IN" + TUITIONFEE_IN
 						}
 						// return (state + xinfo + xdata);
 						// designing tool tip based on which Y-AXIS is active
@@ -253,6 +261,15 @@ d3.csv("consol_data.csv", function(error, mydata) {
 				.attr("class", "xaxisText xinactive")
 				.attr("data-axis-name", "FEMALE")
 				.text("FEMALE");
+		// Append x-axis labels for in-active x-axis
+		    chart
+		        .append("text")
+		        .attr(
+			        "transform",
+			        "translate(" + width / 2.75 + " ," + (height + margin.top + 60) + ")")
+		        .attr("class", "xaxisText xinactive")
+		        .attr("data-axis-name", "TUITIONFEE_IN")
+		        .text("TUITIONFEE_IN");		
 
 		//==================================================================================//
 			// Change an x-axis's status from inactive to active when clicked (if it was inactive)
