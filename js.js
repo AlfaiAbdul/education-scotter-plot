@@ -30,10 +30,10 @@ d3.csv("consol_data.csv", function(error, mydata) {
 				data.MN_EARN_WNE_P10 = +data.MN_EARN_WNE_P10;
 				//2nd chart
 				data.MEDIAN_HH_INC = +data.MEDIAN_HH_INC
-				data.PovertyRate = +data.PovertyRate
+				data.MN_EARN_WNE_P10 = +data.MN_EARN_WNE_P10
 				//3rd chart
 				data.FEMALE = +data.FEMALE
-				data.MeanEarningsDevidedBy1000 = +data.MeanEarningsDevidedBy1000
+				data.MN_EARN_WNE_P10 = +data.MN_EARN_WNE_P10
 			});
 			console.log(mydata)
 
@@ -89,8 +89,8 @@ d3.csv("consol_data.csv", function(error, mydata) {
 			yLinearScale.domain([yMin,yMax]);
 
 		// defining tooltip 
-		//2nd chart - PovertyRate && MEDIAN_HH_INC
-		//3rd chart - MeanEarningsDevidedBy1000 && FEMALE
+		//2nd chart - MN_EARN_WNE_P10 && MEDIAN_HH_INC
+		//3rd chart - MN_EARN_WNE_P10 && FEMALE
 			var toolTip = d3.tip()
 					.attr("class", "tooltip")
 					.offset([80, -60])
@@ -103,39 +103,39 @@ d3.csv("consol_data.csv", function(error, mydata) {
 						var ydata = +data[currentAxisLabelY];
 
 						// 1st chart data fields
-						var MN_EARN_WNE_P10l = +data.MN_EARN_WNE_P10;
 						var SAT_AVG = +data.SAT_AVG;
+						var MN_EARN_WNE_P10 = +data.MN_EARN_WNE_P10;
 						// 2nd chart data fields
-						var PovertyRate = +data.PovertyRate
-						var MEDIAN_HH_INC = +data.MEDIAN_HH_INC
+						var MEDIAN_HH_INC = +data.MEDIAN_HH_INC;
+						var MN_EARN_WNE_P10 = +data.MN_EARN_WNE_P10;
 						// 3rd chart data fields
-						var MeanEarningsDevidedBy1000 = +data.MeanEarningsDevidedBy1000
-						var FEMALE = +data.FEMALE
+						var FEMALE = +data.FEMALE;
+						var MN_EARN_WNE_P10 = +data.MN_EARN_WNE_P10;
 
 						// designing tool tip based on which X-AXIS is active
 
-						if (currentAxisLabelX === 'MN_EARN_WNE_P10') {
-							xinfo = "MN_EARN_WNE_P10" + MN_EARN_WNE_P10;
+						if (currentAxisLabelX === 'SAT_AVG') {
+							xinfo = "SAT_AVG" + MN_EARN_WNE_P10;
 						}
-						else if (currentAxisLabelX === 'PovertyRate') {
-							xinfo = "PovertyRate" + PovertyRate
+						else if (currentAxisLabelX === 'MEDIAN_HH_INC') {
+							xinfo = "MEDIAN_HH_INC" + MN_EARN_WNE_P10
 						}
 						else {
-							xinfo = "log Mean Earnings" + MeanEarningsDevidedBy1000
+							xinfo = "FEMALE" + FEMALE
 						}
 						// return (state + xinfo + xdata);
 						// designing tool tip based on which Y-AXIS is active
 
-						if (currentAxisLabelY === 'SAT_AVG') {
-							yinfo = "SAT_AVG" + SAT_AVG
+						if (currentAxisLabelY === 'MN_EARN_WNE_P10') {
+							yinfo = "MN_EARN_WNE_P10" + SAT_AVG
 						}
 
-						else if(currentAxisLabelY === 'MEDIAN_HH_INC'){
-							yinfo = "MEDIAN_HH_INC" + MEDIAN_HH_INC
+						else if(currentAxisLabelY === 'MN_EARN_WNE_P10'){
+							yinfo = "MN_EARN_WNE_P10" + MEDIAN_HH_INC
 						}
 
 						else{
-							yinfo = "FEMALE" + FEMALE
+							yinfo = "log Mean Earnings" + MN_EARN_WNE_P10
 						}
 							console.log(state,":",xinfo, yinfo)
 						return state + "<hr>" + xinfo + "<br>" + yinfo;
@@ -204,8 +204,8 @@ d3.csv("consol_data.csv", function(error, mydata) {
 					.attr("x", 0 - (height/1.5))
 					.attr("dy", "1em")
 					.attr("class", "yaxisText yactive")
-					.attr("data-axis-name", "SAT_AVG")
-					.text("SAT_AVG");
+					.attr("data-axis-name", "MN_EARN_WNE_P10")
+					.text("MN_EARN_WNE_P10");
 
 		//append y-label for inactive y-axis
 		 chart.append("text")
@@ -214,8 +214,8 @@ d3.csv("consol_data.csv", function(error, mydata) {
 					.attr("x", 0 - (height / 1.65))
 					.attr("dy", "1em")
 					.attr("class", "yaxisText yinactive")
-					.attr("data-axis-name", "MEDIAN_HH_INC")
-					.text("MEDIAN_HH_INC");
+					.attr("data-axis-name", "MN_EARN_WNE_P10")
+					.text("MN_EARN_WNE_P10");
 
 		//append y-label for inactive y-axis
 		 chart.append("text")
@@ -224,15 +224,15 @@ d3.csv("consol_data.csv", function(error, mydata) {
 					.attr("x", 0 - (height / 1.75))
 					.attr("dy", "1em")
 					.attr("class", "yaxisText yinactive")
-					.attr("data-axis-name", "FEMALE")
-					.text("FEMALE");
+					.attr("data-axis-name", "MN_EARN_WNE_P10")
+					.text("MN_EARN_WNE_P10");
 
 		// Append x-axis labels for default active x-axis
 			chart.append("text")
 				.attr("transform", "translate(" + (width / 3) + " ," + (height + margin.top + 20) + ")")
 				.attr("class", "xaxisText xactive")
-				.attr("data-axis-name", "MN_EARN_WNE_P10")
-				.text("MN_EARN_WNE_P10");
+				.attr("data-axis-name", "SAT_AVG")
+				.text("SAT_AVG");
 
 		// Append x-axis labels for in-active x-axis
 			chart
@@ -242,8 +242,8 @@ d3.csv("consol_data.csv", function(error, mydata) {
 					"translate(" + width / 2.85 + " ," + (height + margin.top + 40) + ")")
 				// This axis label is inactive by default
 				.attr("class", "xaxisText xinactive")
-				.attr("data-axis-name", "PovertyRate")
-				.text("PovertyRate");
+				.attr("data-axis-name", "MEDIAN_HH_INC")
+				.text("MEDIAN_HH_INC");
 		// Append x-axis labels for in-active x-axis
 			chart
 				.append("text")
@@ -251,8 +251,8 @@ d3.csv("consol_data.csv", function(error, mydata) {
 					"transform",
 					"translate(" + width / 2.75 + " ," + (height + margin.top + 60) + ")")
 				.attr("class", "xaxisText xinactive")
-				.attr("data-axis-name", "MeanEarningsDevidedBy1000")
-				.text("MeanEarningsDevidedBy1000");
+				.attr("data-axis-name", "FEMALE")
+				.text("FEMALE");
 
 		//==================================================================================//
 			// Change an x-axis's status from inactive to active when clicked (if it was inactive)
