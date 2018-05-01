@@ -22,18 +22,18 @@ d3.select(".chart")
 	.attr("class", "tooltip")
 	.style("opacity", 0);
 
-d3.csv("mydata.csv", function(error, mydata) {
+d3.csv("consol_data.csv", function(error, mydata) {
 	if (error) throw error;
 
 			mydata.forEach(function(data) {
-				data.MedianHouseHoldInc = +data.MedianHouseHoldInc;
-				data.WHITE = +data.WHITE;
+				data.SAT_AVG = +data.SAT_AVG;
+				data.MN_EARN_WNE_P10 = +data.MN_EARN_WNE_P10;
 				//2nd chart
+				data.MEDIAN_HH_INC = +data.MEDIAN_HH_INC
 				data.PovertyRate = +data.PovertyRate
-				data.BLACK = +data.BLACK
 				//3rd chart
+				data.FEMALE = +data.FEMALE
 				data.MeanEarningsDevidedBy1000 = +data.MeanEarningsDevidedBy1000
-				data.HISPANIC = +data.HISPANIC
 			});
 			console.log(mydata)
 
@@ -64,22 +64,22 @@ d3.csv("mydata.csv", function(error, mydata) {
 				});
 
 				yMax = d3.max(mydata, function(data) {
-					return +data.WHITE * 1.5;
+					return +data.SAT_AVG * 1.5;
 				});
 
 				yMin = d3.min(mydata, function(data){
-					return +data.WHITE * 0.3;
+					return +data.SAT_AVG * 0.3;
 
 				});
 			}
 
-			// The default x-axis is 'MedianHouseHoldInc'
+			// The default x-axis is 'MN_EARN_WNE_P10'
 			// Another axis can be assigned to the variable during an onclick event.
 			// This variable is key to the ability to change axis/data column
-			var currentAxisLabelX = "MedianHouseHoldInc";
-			var currentAxisLabelY = "WHITE";
+			var currentAxisLabelX = "MN_EARN_WNE_P10";
+			var currentAxisLabelY = "SAT_AVG";
 
-			// Call findMinAndMax() with 'MedianHouseHoldInc' as default
+			// Call findMinAndMax() with 'MN_EARN_WNE_P10' as default
 			findMinAndMax(currentAxisLabelX);
 			findMinAndMax(currentAxisLabelY);
 
@@ -89,8 +89,8 @@ d3.csv("mydata.csv", function(error, mydata) {
 			yLinearScale.domain([yMin,yMax]);
 
 		// defining tooltip 
-		//2nd chart - PovertyRate && BLACK
-		//3rd chart - MeanEarningsDevidedBy1000 && HISPANIC
+		//2nd chart - PovertyRate && MEDIAN_HH_INC
+		//3rd chart - MeanEarningsDevidedBy1000 && FEMALE
 			var toolTip = d3.tip()
 					.attr("class", "tooltip")
 					.offset([80, -60])
@@ -103,19 +103,19 @@ d3.csv("mydata.csv", function(error, mydata) {
 						var ydata = +data[currentAxisLabelY];
 
 						// 1st chart data fields
-						var MedianHouseHoldIncl = +data.MedianHouseHoldInc;
-						var WHITE = +data.WHITE;
+						var MN_EARN_WNE_P10l = +data.MN_EARN_WNE_P10;
+						var SAT_AVG = +data.SAT_AVG;
 						// 2nd chart data fields
 						var PovertyRate = +data.PovertyRate
-						var BLACK = +data.BLACK
+						var MEDIAN_HH_INC = +data.MEDIAN_HH_INC
 						// 3rd chart data fields
 						var MeanEarningsDevidedBy1000 = +data.MeanEarningsDevidedBy1000
-						var HISPANIC = +data.HISPANIC
+						var FEMALE = +data.FEMALE
 
 						// designing tool tip based on which X-AXIS is active
 
-						if (currentAxisLabelX === 'MedianHouseHoldInc') {
-							xinfo = "MedianHouseHoldInc" + MedianHouseHoldInc;
+						if (currentAxisLabelX === 'MN_EARN_WNE_P10') {
+							xinfo = "MN_EARN_WNE_P10" + MN_EARN_WNE_P10;
 						}
 						else if (currentAxisLabelX === 'PovertyRate') {
 							xinfo = "PovertyRate" + PovertyRate
@@ -126,16 +126,16 @@ d3.csv("mydata.csv", function(error, mydata) {
 						// return (state + xinfo + xdata);
 						// designing tool tip based on which Y-AXIS is active
 
-						if (currentAxisLabelY === 'WHITE') {
-							yinfo = "White" + WHITE
+						if (currentAxisLabelY === 'SAT_AVG') {
+							yinfo = "SAT_AVG" + SAT_AVG
 						}
 
-						else if(currentAxisLabelY === 'BLACK'){
-							yinfo = "Black" + BLACK
+						else if(currentAxisLabelY === 'MEDIAN_HH_INC'){
+							yinfo = "MEDIAN_HH_INC" + MEDIAN_HH_INC
 						}
 
 						else{
-							yinfo = "Hispanic" + HISPANIC
+							yinfo = "FEMALE" + FEMALE
 						}
 							console.log(state,":",xinfo, yinfo)
 						return state + "<hr>" + xinfo + "<br>" + yinfo;
@@ -148,7 +148,7 @@ d3.csv("mydata.csv", function(error, mydata) {
 						.data(mydata)
 						.enter().append("circle")
 						.attr("cx", function(data, index) {
-							// console.log(data.MedianHouseHoldInc);
+							// console.log(data.MN_EARN_WNE_P10);
 							return xLinearScale(+data[currentAxisLabelX]);
 						})
 						.attr("cy", function(data, index) {
@@ -157,7 +157,7 @@ d3.csv("mydata.csv", function(error, mydata) {
 						.attr("r", "5")
 						// // or when using calculation for radius
 						// .attr("r", function(data, index){
-						//   return data.WHITE;
+						//   return data.SAT_AVG;
 						// })
 					 .attr("fill", "skyblue")
 					 .attr("opacity", 0.45)
@@ -204,8 +204,8 @@ d3.csv("mydata.csv", function(error, mydata) {
 					.attr("x", 0 - (height/1.5))
 					.attr("dy", "1em")
 					.attr("class", "yaxisText yactive")
-					.attr("data-axis-name", "WHITE")
-					.text("White");
+					.attr("data-axis-name", "SAT_AVG")
+					.text("SAT_AVG");
 
 		//append y-label for inactive y-axis
 		 chart.append("text")
@@ -214,8 +214,8 @@ d3.csv("mydata.csv", function(error, mydata) {
 					.attr("x", 0 - (height / 1.65))
 					.attr("dy", "1em")
 					.attr("class", "yaxisText yinactive")
-					.attr("data-axis-name", "BLACK")
-					.text("Black");
+					.attr("data-axis-name", "MEDIAN_HH_INC")
+					.text("MEDIAN_HH_INC");
 
 		//append y-label for inactive y-axis
 		 chart.append("text")
@@ -224,15 +224,15 @@ d3.csv("mydata.csv", function(error, mydata) {
 					.attr("x", 0 - (height / 1.75))
 					.attr("dy", "1em")
 					.attr("class", "yaxisText yinactive")
-					.attr("data-axis-name", "HISPANIC")
-					.text("Hispanic");
+					.attr("data-axis-name", "FEMALE")
+					.text("FEMALE");
 
 		// Append x-axis labels for default active x-axis
 			chart.append("text")
 				.attr("transform", "translate(" + (width / 3) + " ," + (height + margin.top + 20) + ")")
 				.attr("class", "xaxisText xactive")
-				.attr("data-axis-name", "MedianHouseHoldInc")
-				.text("MedianHouseHoldInc");
+				.attr("data-axis-name", "MN_EARN_WNE_P10")
+				.text("MN_EARN_WNE_P10");
 
 		// Append x-axis labels for in-active x-axis
 			chart
