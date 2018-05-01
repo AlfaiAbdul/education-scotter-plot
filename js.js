@@ -107,10 +107,10 @@ d3.csv("consol_data.csv", function(error, mydata) {
 						var MN_EARN_WNE_P10 = +data.MN_EARN_WNE_P10;
 						// 2nd chart data fields
 						var MEDIAN_HH_INC = +data.MEDIAN_HH_INC;
-						var MN_EARN_WNE_P10 = +data.MN_EARN_WNE_P10;
+						//var MN_EARN_WNE_P10 = +data.MN_EARN_WNE_P10;
 						// 3rd chart data fields
 						var FEMALE = +data.FEMALE;
-						var MN_EARN_WNE_P10 = +data.MN_EARN_WNE_P10;
+						//var MN_EARN_WNE_P10 = +data.MN_EARN_WNE_P10;
 
 						// designing tool tip based on which X-AXIS is active
 
@@ -208,24 +208,24 @@ d3.csv("consol_data.csv", function(error, mydata) {
 					.text("MN_EARN_WNE_P10");
 
 		//append y-label for inactive y-axis
-		 chart.append("text")
-					.attr("transform", "rotate(-90)")
-					.attr("y", 0 - margin.left + 30)
-					.attr("x", 0 - (height / 1.65))
-					.attr("dy", "1em")
-					.attr("class", "yaxisText yinactive")
-					.attr("data-axis-name", "MN_EARN_WNE_P10")
-					.text("MN_EARN_WNE_P10");
+		 //chart.append("text")
+					//.attr("transform", "rotate(-90)")
+					//.attr("y", 0 - margin.left + 30)
+					//.attr("x", 0 - (height / 1.65))
+					//.attr("dy", "1em")
+					//.attr("class", "yaxisText yinactive")
+					//.attr("data-axis-name", "MN_EARN_WNE_P10")
+					//.text("MN_EARN_WNE_P10");
 
 		//append y-label for inactive y-axis
-		 chart.append("text")
-					.attr("transform", "rotate(-90)")
-					.attr("y", 0 - margin.left + 50)
-					.attr("x", 0 - (height / 1.75))
-					.attr("dy", "1em")
-					.attr("class", "yaxisText yinactive")
-					.attr("data-axis-name", "MN_EARN_WNE_P10")
-					.text("MN_EARN_WNE_P10");
+		 //chart.append("text")
+					//.attr("transform", "rotate(-90)")
+					//.attr("y", 0 - margin.left + 50)
+					//.attr("x", 0 - (height / 1.75))
+					//.attr("dy", "1em")
+					//.attr("class", "yaxisText yinactive")
+					//.attr("data-axis-name", "MN_EARN_WNE_P10")
+					//.text("MN_EARN_WNE_P10");
 
 		// Append x-axis labels for default active x-axis
 			chart.append("text")
